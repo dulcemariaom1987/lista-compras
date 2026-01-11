@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de Compras | Dulce María Méndez</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🛒 Mi Lista de Compras</h1>
+                <p class="tagline">Organiza tus compras de manera elegante</p>
+            </div>
+        </header>
+
+        <!-- Card principal -->
+        <div class="shopping-card">
+            <!-- Formulario para agregar items -->
+            <form class="add-item-form" id="addItemForm">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        class="item-input" 
+                        id="itemInput" 
+                        placeholder="Agregar nuevo producto..."
+                        autocomplete="off"
+                        required
+                    >
+                    <input 
+                        type="number" 
+                        class="quantity-input" 
+                        id="quantityInput" 
+                        placeholder="Cant."
+                        min="1"
+                        value="1"
+                    >
+                    <button type="submit" class="add-btn">
+                        <span class="btn-icon">+</span>
+                        <span class="btn-text">Agregar</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Estadísticas -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">📝</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="totalItems">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">✅</span>
+                    <span class="stat-label">Comprados:</span>
+                    <span class="stat-value" id="purchasedItems">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⏳</span>
+                    <span class="stat-label">Pendientes:</span>
+                    <span class="stat-value" id="pendingItems">0</span>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-icon">📋</span>
+                    Todos
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <span class="filter-icon">🔵</span>
+                    Pendientes
+                </button>
+                <button class="filter-btn" data-filter="purchased">
+                    <span class="filter-icon">✅</span>
+                    Comprados
+                </button>
+            </div>
+
+            <!-- Lista de items -->
+            <div class="shopping-list" id="shoppingList">
+                <!-- Estado vacío -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🛍️</div>
+                    <h3 class="empty-title">Tu lista está vacía</h3>
+                    <p class="empty-text">Agrega productos para comenzar a organizar tus compras</p>
+                </div>
+            </div>
+
+            <!-- Acciones -->
+            <div class="actions-bar">
+                <button class="action-btn clear-btn" id="clearPurchased">
+                    <span class="action-icon">🗑️</span>
+                    Limpiar comprados
+                </button>
+                <button class="action-btn delete-all-btn" id="deleteAll">
+                    <span class="action-icon">❌</span>
+                    Eliminar todo
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                Desarrollado por <span class="highlight">Dulce María Méndez</span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
